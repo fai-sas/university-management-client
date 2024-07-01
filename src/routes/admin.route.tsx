@@ -74,7 +74,7 @@ export const adminSidebarItems = adminPaths.reduce(
   []
 )
 
-//* Programatical way
+//* Programmatic way
 
 export const adminRoutes = adminPaths.reduce((acc: TRoute[], item) => {
   if (item.path && item.element) {
