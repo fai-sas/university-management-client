@@ -4,8 +4,10 @@ import { useAppDispatch } from '../redux/hooks'
 import { useLoginMutation } from '../redux/features/auth/authApi'
 import { setUser } from '../redux/features/auth/authSlice'
 import { verifyToken } from '../utils/verifyToken'
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
+  const navigate = useNavigate()
   const dispatch = useAppDispatch()
   const { register, handleSubmit } = useForm({
     defaultValues: {
@@ -31,6 +33,7 @@ const Login = () => {
         token: response.data.accessToken,
       })
     )
+    navigate(`/${user.role}/dashboard`)
   }
   return (
     <form className='p-12' onSubmit={handleSubmit(onSubmit)}>
